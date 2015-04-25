@@ -2,12 +2,13 @@
   "name": "seraalarm",
   "version": "0.1.0",
   "main": "server.js",
+  "repository": "domch/seralarm",
   "dependencies": {
     "lame": "^1.2.1",
     "locallydb": "0.0.5",
     "node-schedule": "^0.2.6",
-    "play-audio": "^0.1.0",
     "socket.io": "1.3.5",
-    "speaker": "^0.2.5"
+    "speaker": "^0.2.5",
+    "express":"4.12.3"
   }
 }
