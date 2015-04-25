@@ -1,0 +1,26 @@
+{
+  "name": "sera",
+  "version": "0.1.0",
+  "description": "Sera Schule Alarm System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domch/seralarm"
+  },
+  "keywords": [
+    "schule",
+    "school",
+    "alarm",
+    "raspberry",
+    "pi"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/domch/seralarm/issues"
+  },
+  "homepage": "https://github.com/domch/seralarm"
+}
