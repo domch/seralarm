@@ -29,7 +29,9 @@ function UI(pTransport)
           view:"toolbar",
           id:"myToolbar",
           cols:[
-            { view:"button", id:"addNewRecord", value:"Neuer Zeit-Eintrag", width:300, align:"left" }]
+            { view:"button", id:"addNewRecord", value:"Neuer Zeit-Eintrag", width:300, align:"left", click:function(){addEmptyRecord();} }
+            //,{ view:"button", id:"stopSound", value:"Alarm stummschalten", width:300, align:"left", click:function(){deactivateSound();} }
+            ]
         },
         { cols:[
           { view:"tree", id:'daytree', data:treedata, gravity:0.2, select:true, minHeight:500, width:300 },
@@ -87,12 +89,25 @@ function UI(pTransport)
     addRecord({from:'', to:'', active:true});
   }
 
+  function deactivateSound(){
+    pTransport.stopSound();
+  }
+
   function addRecord(pRecord){
     getTimeTable('data').add(pRecord);
   }
 
   function showMessage(pMessage){
     webix.message(pMessage);
+  }
+
+  function getCurrentDate(){
+    var day = (new Date()).getDay();
+    return day == 0 ? 7 : day;
+  }
+
+  function adjestSelectedDate(pSelectedDay){
+    return pSelectedDay == 7 ? 0 : pSelectedDay;
   }
 
 
@@ -111,30 +126,27 @@ function UI(pTransport)
 
   this.init = function()
   {
-    getDayTree().attachEvent("onAfterSelect", function (id) {
+    getDayTree().attachEvent("onAfterSelect", function (selectedDayId) {
       clearTimeTable();
-      pTransport.loadDayData(id);
+      pTransport.loadDayData(adjestSelectedDate(+selectedDayId));
     });
 
     getTimeTable().attachEvent("onDataUpdate", function(id, pDayData)
     {
-      //$$('timetable').select(id, true);
-      var selectedDayId = getSelectedDayId();
-      showMessage("Sie haben gerade die Zeituhr geändert! Die Änderungen werden gespeichert...<br><br><b>"+
-                   getSelectedDayName(selectedDayId)+":</b>"+ pDayData.from +" - " + pDayData.to);
-      pTransport.saveDayData(pDayData, selectedDayId);
-
-      return true;
-    });
-
-    $$('addNewRecord').attachEvent("onItemClick", function(id, e){
-      addEmptyRecord();
+      if(pDayData.from && pDayData.to) {
+        var selectedDayId = getSelectedDayId();
+        showMessage("Sie haben gerade die Zeituhr geändert! Die Änderungen werden gespeichert...<br><br><b>" +
+        getSelectedDayName(selectedDayId) + ":</b>" + pDayData.from + " - " + pDayData.to);
+        pTransport.saveDayData(pDayData, adjestSelectedDate(+selectedDayId));
+        return true;
+      }
+      return false;
     });
 
 
-    transport.setIncomingDataHandler(handleIncomingData);
+    pTransport.setIncomingDataHandler(handleIncomingData);
 
     getDayTree().openAll();
-    getDayTree().select((new Date()).getDay());
+    getDayTree().select(getCurrentDate());
   }
 };

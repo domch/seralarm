@@ -16,6 +16,10 @@ function Transport(pEndPoint)
     socket.emit('save', pDayData, pSelectedDay);
   };
 
+  this.stopSound = function(){
+    socket.emit('stopSound');
+  };
+
   this.setIncomingDataHandler = function(pHandler){
     socket.on('data', pHandler);
   };

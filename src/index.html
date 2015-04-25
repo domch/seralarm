@@ -13,16 +13,13 @@
   <script src="transport.js"></script>
   <script src="ui.js"></script>
   <script>
-    var transport = new Transport('http://localhost:8000');
-    var ui = new UI(transport);
+    ;(function() {
+      var transport = new Transport('http://localhost:8000');
+      var ui = new UI(transport);
 
-    ui.init();
-
+      ui.init();
+    })();
   </script>
-
-
-
-
 
 </body>
 </html>
