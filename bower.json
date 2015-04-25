@@ -1,0 +1,19 @@
+{
+  "name": "sera",
+  "version": "0.0.0",
+  "homepage": "https://github.com/domch/seralarm",
+  "authors": [
+    "Mehmet Dogan <info@intelligentworks.ch>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webix": "~2.3.8"
+  }
+}
