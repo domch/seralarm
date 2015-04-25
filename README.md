@@ -1,2 +1,2 @@
-# Sear Schule Alarm System
+# Sera Schule Alarm System
 
