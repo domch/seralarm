@@ -14,7 +14,7 @@
   <script src="ui.js"></script>
   <script>
     ;(function() {
-      var transport = new Transport('http://localhost:8000');
+      var transport = new Transport(window.location.host);
       var ui = new UI(transport);
 
       ui.init();
