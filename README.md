@@ -3,7 +3,7 @@ The application provides a web management tool enabling alarm scheduling for a s
 
 
 ### Installation
-The folowing git clone creates a directory with the name "seralarm" and copy all files from github
+The following command 'git clone' creates a directory with the name "seralarm" and copy all files from the github into the directory.
 ```shell
 git clone git://github.com/domch/seralarm
 npm install
