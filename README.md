@@ -1,5 +1,5 @@
 # A Simple School Alarm System
-The application provides a web mangement tool enabling alarm scheduling for the school. It is designed for a raspberry PI machine.
+The application provides a web management tool enabling alarm scheduling for a school. It is designed for a raspberry PI machine.
 
 
 ### Installation
