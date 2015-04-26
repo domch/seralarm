@@ -118,3 +118,12 @@ function playAudio()
       this.pipe(new Speaker(format));
     });
 }
+
+
+
+schedule.scheduleJob('00 6 * * *', function(){
+  var pDay = (new Date()).getDay();
+
+  var timeSheetRecordsByDay = timesheet.where("@day == " + pDay);
+  rescheduleDays(timeSheetRecordsByDay.items, pDay);
+});

@@ -1,8 +1,9 @@
 {
   "name": "seraalarm",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "server.js",
   "repository": "domch/seralarm",
+  "description": "Sera Schule AlarmSyste with Raspberry PI",
   "dependencies": {
     "lame": "^1.2.1",
     "locallydb": "0.0.5",
